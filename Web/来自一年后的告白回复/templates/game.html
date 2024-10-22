@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rock-Paper-Scissors Game</h1>
+        <p>Welcome, {{ player_data.username }}!</p>
+        <p>Current Win Streak: <span class="streak">{{ player_data.win_streak }}</span></p>
+        <p>Highest Win Streak: <span class="streak">{{ player_data.highest_streak }}</span></p>
+
+        <form method="POST" action="/game" class="game-form">
+            <label for="choice">Choose your move:</label>
+            <div class="choices">
+                <button type="submit" name="choice" value="rock" class="emoji-button">✊</button>
+                <button type="submit" name="choice" value="paper" class="emoji-button">✋</button>
+                <button type="submit" name="choice" value="scissors" class="emoji-button">✌️</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <p>You chose: <span class="emoji">{{ player_choice }}</span>
+                Computer chose: <span class="emoji">{{ computer_choice }}</span></p>
+            <p>Result: <span class="result-text">{{ result }}</span></p>
+        </div>
+        {% endif %}
+
+        <hr>
+        <h2>Save and Load Progress</h2>
+        <a href="/download" class="btn">Download Progress</a>
+
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <label for="file">Upload Progress:</label>
+            <input type="file" id="file" name="file">
+            <button type="submit" class="btn">Upload</button>
+        </form>
+        <p>Copyright : <span> ** g.nemo ** </span></p>
+
+    </div>
+
+</body>
+
+</html>
