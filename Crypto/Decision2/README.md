@@ -1,23 +1,23 @@
-### Decision2
+## Decision2
 
 + Difficulty：Middle
 + Solved：3
 
 <br/>
 
-### Description
+## Description
 
 Make your decision again and again!
 
 <br/>
 
-### Hint
+## Hint
 
 + 题目基于配对密码学，主要关注weil pairing函数值的某种性质
 
 <br/>
 
-### Solution
+## Solution
 
 本题背景为曲线配对，使用曲线为BLS12-638，其decision为：(以下运算均在模p下进行)
 

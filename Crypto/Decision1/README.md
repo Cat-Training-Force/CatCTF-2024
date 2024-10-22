@@ -1,23 +1,23 @@
-### Decision1
+## Decision1
 
 + Difficulty: Middle
 + Solved：4
 
 <br/>
 
-### Description
+## Description
 
 Make your decision again!
 
 <br/>
 
-### Hint
+## Hint
 
 + 对比一下本题和revenge，可以知道非预期大概出现在什么地方
 
 <br/>
 
-### Solution
+## Solution
 
 本题背景为格密码，其decision为：
 

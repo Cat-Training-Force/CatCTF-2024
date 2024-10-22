@@ -1,17 +1,17 @@
-### C0pper
+## C0pper
 
 + Difficulty：Middle
 + Solved：4
 
 <br/>
 
-### Description
+## Description
 
 What's the meaning of copper?
 
 <br/>
 
-### Hint
+## Hint
 
 + 搜索一下coppersmith方法的功能
 
@@ -23,7 +23,7 @@ What's the meaning of copper?
 
 <br/>
 
-### Solution
+## Solution
 
 题目把flag分成前后两段，并随机padding后转为整数值m1、m2，之后生成RSA的私钥p、q及其乘积公钥n，然后给出五个密文(以下运算均在模n下进行)：
 $$

@@ -1,23 +1,23 @@
-### Decision3
+## Decision3
 
 + Difficulty：Middle
 + Solved：3
 
 <br/>
 
-### Description
+## Description
 
 Make your decision again and again and again!
 
 <br/>
 
-### Hint
+## Hint
 
 + 题目基于曲线同源，主要关注3-isogeny关联的曲线和2-isogeny关联的曲线满足的不同等式
 
 <br/>
 
-### Solution
+## Solution
 
 本题背景为曲线同源，先在一个给定的素数p下，生成一个二次扩域$GF(p^2)$下的超奇异椭圆曲线E，然后基于这个E开始进行后续步骤。
 

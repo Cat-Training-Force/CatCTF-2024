@@ -1,23 +1,23 @@
-### Decision4
+## Decision4
 
 + Difficulty：Middle
 + Solved：3
 
 <br/>
 
-### Description
+## Description
 
 Make your decision again and again and again and again! XD
 
 <br/>
 
-### Hint
+## Hint
 
 + 题目基于编码密码学，主要关注置换对误差的影响
 
 <br/>
 
-### Solution
+## Solution
 
 本题背景为编码理论，采用的编码是模65537下的(40,12)-Generalized Reed Solomon Code，其decision为：
 

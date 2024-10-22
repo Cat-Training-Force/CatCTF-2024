@@ -1,17 +1,17 @@
-### Random game
+## Random game
 
 + Difficulty：Hard
 + Solved：3
 
 <br/>
 
-### Description
+## Description
 
 Play a random game with bear!
 
 <br/>
 
-### Hint
+## Hint
 
 + python的random库函数均基于MT19937伪随机数生成器，搜索一下它的基本原理及攻击思路
 
@@ -21,7 +21,7 @@ Play a random game with bear!
 
 <br/>
 
-### Solution
+## Solution
 
 题目明显的分为了两个部分，一部分是getrandbits，一部分是shuffle。比较显然的解题步骤应该是：
 

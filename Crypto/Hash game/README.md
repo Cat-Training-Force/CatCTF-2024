@@ -1,17 +1,17 @@
-### Hash game
+## Hash game
 
 + Difficulty：Easy
 + Solved：16
 
 <br/>
 
-### Description
+## Description
 
 Play a hash game with bear!
 
 <br/>
 
-### Hint
+## Hint
 
 + 根据密文长度，判断当前密文究竟调用的是哪种哈希算法
 
@@ -19,7 +19,7 @@ Play a hash game with bear!
 
 <br/>
 
-### Solution
+## Solution
 
 题目基于哈希，总共给出flag长度那么多次密文，第i次的加密步骤为：
 

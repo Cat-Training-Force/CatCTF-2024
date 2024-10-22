@@ -1,17 +1,17 @@
-### Decision0
+## Decision0
 
 + Difficulty：Easy
 + Solved：11
 
 <br/>
 
-### Description
+## Description
 
 why I call this Decision0? Maybe you will know next week.
 
 <br/>
 
-### Hint
+## Hint
 
 + 本题需要sagemath环境
 
@@ -21,7 +21,7 @@ why I call this Decision0? Maybe you will know next week.
 
 <br/>
 
-### Solution
+## Solution
 
 题目是一个按flag比特的decision：
 
