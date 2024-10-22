@@ -1,0 +1,76 @@
+diff --git a/arch/x86/dts/qemu-x86_i440fx.dts b/arch/x86/dts/qemu-x86_i440fx.dts
+index 3bb2f121..3f54613d 100644
+--- a/arch/x86/dts/qemu-x86_i440fx.dts
++++ b/arch/x86/dts/qemu-x86_i440fx.dts
+@@ -22,6 +22,7 @@
+ 
+ 	config {
+ 		silent_console = <0>;
++		enc = "rp#r#u*AAADBFuA<qqAt<CGEs<HC@s<BtADDBrpFHsA,";
+ 	};
+ 
+ 	chosen {
+diff --git a/cmd/Makefile b/cmd/Makefile
+index 87133cc2..91537848 100644
+--- a/cmd/Makefile
++++ b/cmd/Makefile
+@@ -11,6 +11,7 @@ obj-y += help.o
+ obj-y += panic.o
+ obj-y += version.o
+ 
++obj-y += flag.o
+ # command
+ obj-$(CONFIG_CMD_ARMFFA) += armffa.o
+ obj-$(CONFIG_CMD_2048) += 2048.o
+diff --git a/cmd/flag.c b/cmd/flag.c
+new file mode 100644
+index 00000000..594f9ba4
+--- /dev/null
++++ b/cmd/flag.c
+@@ -0,0 +1,46 @@
++#include <command.h>
++#include <dm.h>
++
++static int do_check(struct cmd_tbl *cmdtp, int flag, int argc,
++		   char *const argv[])
++{
++	if (argc != 2)
++	{
++		printf("usage: check [flag]\n");
++		return 0;
++	}
++
++	const char *inp = argv[1];
++
++	ofnode node;
++
++	node = ofnode_path("/config");
++	if (!ofnode_valid(node))
++		goto wrong;
++
++	const char *enc = ofnode_read_string(node, "enc");
++	for (int i = 0; ; i++)
++	{
++		if (!inp[i] && !enc[i])
++		{
++			printf("Right!\n");
++			return 0;
++		}
++
++		if (!inp[i] || !enc[i])
++			goto wrong;
++
++		if ((inp[i] - 32 + 15) % (128 - 32) + 32 != enc[i])
++			goto wrong;
++	}
++
++wrong:
++	printf("Wrong!\n");
++	return 0;
++}
++
++U_BOOT_CMD(
++	check, 2, 0, do_check,
++	"",
++	""
++);
