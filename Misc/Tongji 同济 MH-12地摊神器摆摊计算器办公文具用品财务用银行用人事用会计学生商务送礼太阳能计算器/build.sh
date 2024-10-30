@@ -1,0 +1,1 @@
+docker build . -t anzupop/tongjictf2023_calc
