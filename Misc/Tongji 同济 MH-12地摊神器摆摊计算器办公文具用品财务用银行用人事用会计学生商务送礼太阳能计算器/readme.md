@@ -8,6 +8,10 @@ TongjiCTF 组委会很自豪地在 [TongjiWIZ fx-991CN X](https://github.com/Cat
 
 归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零归零
 
+提示 1：记得看附件
+
+提示 2：没给它分到 Web 是有理由的
+
 ## 思路
 
 [PEP](https://peps.python.org/pep-0672/) [谷歌应该能查到的东西](https://github.com/salvatore-abello/python-ctf-cheatsheet/blob/main/pyjails/how-to-solve-a-pyjail.md) [Python Documentation](https://docs.python.org/3/howto/unicode.html)
@@ -39,5 +43,9 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+Unintended solution:
+
+里面有个 `new_flag` 变量，直接读那个就行。算是减小了一点难度（大概）？
 
 
