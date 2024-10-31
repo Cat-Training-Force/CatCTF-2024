@@ -1,0 +1,14 @@
+# 使用一个基础的Apache镜像，同时包含PHP模块
+FROM php:7.4-apache
+
+# 将当前目录中的所有文件复制到Apache的默认网站目录
+COPY . /src /var/www/html
+
+# 暴露Apache默认的HTTP端口
+EXPOSE 80
+
+# 启用Apache的rewrite模块
+RUN a2enmod rewrite
+
+# 运行Apache
+CMD ["apache2-foreground"]

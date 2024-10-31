@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>许愿池</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  .login-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  .login-container h2 {
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  .input-field {
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .submit-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <h2>bear的许愿池</h2>
+  <form id="login-form">
+    <p>快来许愿吧！如果你的幸运数字和熊老师一样，那你就能获得熊老师的祝福！</p>
+    <h1>你的幸运数字是：<span name="luckyNum"></span></h1>
+    <input class="input-field" type="hidden" name="md5Val">
+    <button class="submit-btn" type="submit">许愿</button>
+  </form>
+  <p id="result-msg"></p>
+</div>
+
+
+<script>
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  function calculateMD5() {
+
+    var luckunum = document.querySelector('[name="luckyNum"]');
+    var md5Val = document.querySelector('[name="md5Val"]');
+    var randomVal = getRandomInt(1,99999).toString();
+    // 使用 CryptoJS 库进行 MD5 计算
+    // 请确保已经引入 CryptoJS 库
+    var hash = CryptoJS.MD5(randomVal).toString();
+    luckunum.innerText = randomVal;
+    md5Val.value = hash;
+  }
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    calculateMD5();
+    const luckyNum = document.querySelector('[name="luckyNum"]').innerText;
+    const md5Val = document.querySelector('[name="md5Val"]').value;
+
+        // 创建一个对象来存储这些值
+    const data = {
+        luckyNum: luckyNum,
+        md5Val: md5Val
+    };
+    const response = await fetch('/', {
+      method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // 设置请求头
+            },
+            body: JSON.stringify(data)
+    });
+    const result = await response.text();
+    document.getElementById('result-msg').textContent = result;
+  });
+</script>
+</body>
+</html>

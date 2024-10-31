@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /Secre7_ent4ance.php
