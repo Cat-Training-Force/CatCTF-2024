@@ -1,0 +1,1 @@
+docker kill tongjictf2023_calc

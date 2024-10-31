@@ -1,0 +1,48 @@
+<body>
+    <p>
+        不可以使用的字符: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_=<>[]{}!@#$&|?'"\.
+    </p>
+    <input type="text" id="username" name="username" placeholder="输入就可以计算……">
+    <p id="usernameResult">这里是结果</p>
+    <!-- 下面插入一个归零按钮，把 usernameResult 地方的东西归零，同时播放一个叫 lk0.mp3 的声音-->
+     <!-- 哦我的上帝呀，这里没有你要的 flag -->
+    <button id="lk0_button"
+        onclick="document.getElementById('usernameResult').innerHTML = '0'">归零</button>
+        <audio controls id="linkAudio" style="visibility: hidden;">
+            <source src="lk0.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio>
+</body>
+
+<script>
+    var usernameSelected = document.getElementById('username');
+    var usernameWarning = document.getElementById('usernameResult');
+
+    usernameSelected.addEventListener('keyup', function () {
+        var request = new XMLHttpRequest();
+        var url = "/calc";
+        var json = {'expression': usernameSelected.value};
+        // directly post json
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(JSON.stringify(json))
+
+
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if (request.status === 200) {
+                    var response = JSON.parse(request.response);
+                    if (response.result) {
+                        usernameWarning.innerHTML = response.result;
+                    }
+                }
+            }
+        };
+        request.send(params);
+    });
+    document.getElementById("lk0_button").addEventListener("click", function () {
+        // document.getElementById("linkAudio").load();
+        document.getElementById("linkAudio").currentTime = 0;
+        document.getElementById("linkAudio").play();
+    });
+</script>

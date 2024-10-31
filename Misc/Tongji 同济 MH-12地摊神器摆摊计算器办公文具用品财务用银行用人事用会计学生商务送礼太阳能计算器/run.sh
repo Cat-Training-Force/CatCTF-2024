@@ -1,0 +1,1 @@
+docker run --name tongjictf2023_calc -p1337:1337 anzupop/tongjictf2023_calc
